@@ -6,20 +6,39 @@ func BFS(root *TreeNode) []int {
 		return []int{}
 	}
 
-	queue := []*TreeNode{root}
-	for len(queue) > 0 {
-		node := queue[0]
-		queue = queue[1:]
+	queue := Queue[*TreeNode]{}
+	queue.Push(root)
+	for queue.Len() > 0 {
+		node := queue.Pop()
 
 		ans = append(ans, node.Val)
 
 		if node.Left != nil {
-			queue = append(queue, node.Left)
+			queue.Push(node.Left)
 		}
 		if node.Right != nil {
-			queue = append(queue, node.Right)
+			queue.Push(node.Right)
 		}
 	}
 
 	return ans
+}
+
+type Queue[T any] struct {
+	queue []T
+}
+
+func (q *Queue[T]) Len() int {
+	return len(q.queue)
+}
+
+func (q *Queue[T]) Push(elem T) {
+	q.queue = append(q.queue, elem)
+}
+
+func (q *Queue[T]) Pop() T {
+	defer func() {
+		q.queue = q.queue[1:]
+	}()
+	return q.queue[0]
 }
