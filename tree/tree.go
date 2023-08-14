@@ -1,7 +1,7 @@
 package tree
 
-type Node struct {
-	Val int
-	R   *Node
-	L   *Node
+type TreeNode struct {
+	Val   int
+	Right *TreeNode
+	Left  *TreeNode
 }

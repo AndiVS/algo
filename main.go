@@ -6,21 +6,22 @@ import (
 )
 
 func main() {
-	fmt.Print(tree.DfsSum(&tree.Node{
+	fmt.Print(tree.TargetSum(&tree.TreeNode{
 		Val: 1,
-		R: &tree.Node{
+		Right: &tree.TreeNode{
 			Val: 2,
-			R: &tree.Node{
-				Val: 3,
-				R:   nil,
-				L:   nil,
+			Right: &tree.TreeNode{
+				Val:   3,
+				Right: nil,
+				Left:  nil,
 			},
-			L: &tree.Node{
-				Val: 3,
-				R:   nil,
-				L:   nil,
+			Left: &tree.TreeNode{
+				Val:   3,
+				Right: nil,
+				Left:  nil,
 			},
 		},
-		L: nil,
-	}))
+		Left: nil,
+	},
+		0, 6))
 }
