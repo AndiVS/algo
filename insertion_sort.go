@@ -5,10 +5,8 @@ func insertionSort(sl []int) []int {
 	for i := 1; i < n; i++ {
 		cur := sl[i]
 		j := i - 1
-
-		for j >= 0 && sl[j] > cur {
+		for ; j >= 0 && sl[j] > cur; j-- {
 			sl[j+1] = sl[j]
-			j--
 		}
 		sl[j+1] = cur
 	}
