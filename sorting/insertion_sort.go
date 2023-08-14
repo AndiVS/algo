@@ -1,6 +1,6 @@
-package main
+package sorting
 
-func insertionSort(sl []int) []int {
+func InsertionSort(sl []int) []int {
 	n := len(sl)
 	for i := 1; i < n; i++ {
 		cur := sl[i]

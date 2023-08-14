@@ -1,6 +1,6 @@
-package main
+package sorting
 
-func selectionSort(sl []int) []int {
+func SelectionSort(sl []int) []int {
 	n := len(sl)
 	for i := 0; i < n-1; i++ {
 		minIndex := i
